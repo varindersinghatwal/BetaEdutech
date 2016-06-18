@@ -80,7 +80,8 @@ public class GraphView extends View{
         circlePaint.setColor(node.getColor());
         circlePaint.setAntiAlias(true);
 
-        canvas.drawCircle(node.getPositionX(), node.getPositionY() - (bounds.height() / 2), bounds.width() + 30, circlePaint);
+        canvas.drawCircle(node.getPositionX(), node.getPositionY() -
+                (bounds.height() / 2), bounds.width() + 30, circlePaint);
         canvas.drawText(node.getText(), node.getPositionX(), node.getPositionY(), paint);
     }
 
