@@ -31,25 +31,36 @@ public class GraphView extends View{
         nodeA.setText("A");
         nodeA.setColor(Color.BLUE);
 
-        createCircleOnCanvas(canvas, nodeA);
+        //createCircleOnCanvas(canvas, nodeA);
 
         Node nodeB = new Node("B",new Vertex(width/8, height/3),Color.RED);
 
-        createCircleOnCanvas(canvas, nodeB);
+        //createCircleOnCanvas(canvas, nodeB);
 
         Node nodeC = new Node("C", new Vertex(width/2, height/2), Color.GREEN);
-        createCircleOnCanvas(canvas, nodeC);
+        //createCircleOnCanvas(canvas, nodeC);
 
         Node nodeD = new Node("D", new Vertex(width-width/8,height/3), Color.RED);
-        createCircleOnCanvas(canvas, nodeD);
+        //createCircleOnCanvas(canvas, nodeD);
 
         Node nodeE = new Node("E", new Vertex(width/4,height-height/3), Color.MAGENTA);
-        createCircleOnCanvas(canvas, nodeE);
+        //createCircleOnCanvas(canvas, nodeE);
 
         Node nodeF = new Node("F", new Vertex(width - width / 4, height-height/6), Color.DKGRAY);
-        createCircleOnCanvas(canvas, nodeF);
+        //createCircleOnCanvas(canvas, nodeF);
 
-        drawLineOnCanvas(canvas, nodeA, nodeB, Color.BLACK);
+        drawEdgeOnCanvas(canvas, nodeA, nodeB, Color.BLACK);
+        drawEdgeOnCanvas(canvas, nodeA, nodeD, Color.BLACK);
+        drawEdgeOnCanvas(canvas, nodeD, nodeC, Color.BLACK);
+        drawEdgeOnCanvas(canvas, nodeC, nodeE, Color.BLACK);
+        drawEdgeOnCanvas(canvas,nodeC, nodeF, Color.BLACK);
+
+        createCircleOnCanvas(canvas, nodeA);
+        createCircleOnCanvas(canvas, nodeB);
+        createCircleOnCanvas(canvas, nodeC);
+        createCircleOnCanvas(canvas, nodeD);
+        createCircleOnCanvas(canvas, nodeE);
+        createCircleOnCanvas(canvas, nodeF);
 
         canvas.restore();
     }
@@ -73,7 +84,7 @@ public class GraphView extends View{
         canvas.drawText(node.getText(), node.getPositionX(), node.getPositionY(), paint);
     }
 
-    private void drawLineOnCanvas(Canvas canvas, Node nodeA, Node nodeB, int color){
+    private void drawEdgeOnCanvas(Canvas canvas, Node nodeA, Node nodeB, int color){
         Paint paint = new Paint();
         paint.setColor(color);
         paint.setStyle(Paint.Style.FILL);
