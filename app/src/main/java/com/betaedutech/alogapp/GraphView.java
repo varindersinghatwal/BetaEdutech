@@ -9,14 +9,15 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.util.AttributeSet;
 import android.view.View;
 
 public class GraphView extends View{
 
     private int width = 0;
     private int height = 0;
-    public GraphView(Context context){
-        super(context);
+    public GraphView(Context context, AttributeSet attr){
+        super(context, attr);
     }
 
     @Override
@@ -46,7 +47,7 @@ public class GraphView extends View{
         Node nodeE = new Node("E", new Vertex(width/4,height-height/3), Color.MAGENTA);
         //createCircleOnCanvas(canvas, nodeE);
 
-        Node nodeF = new Node("F", new Vertex(width - width / 4, height-height/6), Color.DKGRAY);
+        Node nodeF = new Node("F", new Vertex(width-width/4, height-height/6), Color.DKGRAY);
         //createCircleOnCanvas(canvas, nodeF);
 
         drawEdgeOnCanvas(canvas, nodeA, nodeB, Color.BLACK);
